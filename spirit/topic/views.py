@@ -107,7 +107,6 @@ def index_active(request):
         Category.objects
         .visible()
         .parents())
-
     topics = (
         Topic.objects
         .visible()
