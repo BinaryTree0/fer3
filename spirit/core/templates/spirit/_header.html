@@ -75,7 +75,7 @@
 
     </div>
   {% else %}
-    <a class="header-link"
+    <a class="header-link" id="login-header-link"
       href="{% url "spirit:user:auth:login" %}?next={% firstof request.get_full_path|urlencode '/' %}"
     >{% trans "Log in" %}</a>
   {% endif %}

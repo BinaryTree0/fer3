@@ -35,7 +35,7 @@
       {% endspaceless %}
     </div>
   </div>
-
+  {% if request.user.is_superuser %}
   <div class="new-topic">
     {% if category %}
       <a class="button" href="{% url "spirit:topic:publish" category.pk %}">{% trans "Create Topic" %}</a>
@@ -43,4 +43,5 @@
       <a class="button" href="{% url "spirit:topic:publish" %}">{% trans "Create Topic" %}</a>
     {% endif %}
   </div>
+  {% endif %}
 </div>
