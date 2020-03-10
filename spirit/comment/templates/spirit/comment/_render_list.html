@@ -52,7 +52,7 @@
     {% spaceless %}
     <ul class="comment-actions">
       {% if user.is_authenticated %}
-        {% if user.st.is_moderator %}
+        {% if user.st.is_moderator or user == c.user %}
           <li>
             <a href="{% url "spirit:comment:delete" c.pk %}">
               <i class="fa fa-times"></i> {% trans "delete" %}</a>

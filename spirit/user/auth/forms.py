@@ -34,6 +34,12 @@ class RegistrationForm(CleanEmailMixin, forms.ModelForm):
         super(RegistrationForm, self).__init__(*args, **kwargs)
         self.fields['email'].required = True  # Django model does not requires it
 
+    def clean_email(self):
+        data = self.cleaned_data['email']
+        if "@fer.hr" not in data:   # any check you need
+            raise forms.ValidationError("Must be a fer.hr address")
+        return data
+
     def clean_honeypot(self):
         """Check that nothing has been entered into the honeypot."""
         value = self.cleaned_data["honeypot"]
